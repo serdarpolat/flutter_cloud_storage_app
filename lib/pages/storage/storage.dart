@@ -76,7 +76,7 @@ List<FileTypeModel> fileTypes = [
   FileTypeModel("Design Files", "38.66", Clrs.mainText, 70),
   FileTypeModel("Images", "24.80", Clrs.yellow, 50),
   FileTypeModel("Videos", "12.60", Clrs.lightGreen, 44),
-  FileTypeModel("Documents", "06.57", Clrs.blue, 81),
+  FileTypeModel("Documents", "6.57", Clrs.blue, 81),
   FileTypeModel("Others", "2.01", Clrs.orange, 24),
 ];
 
@@ -200,41 +200,49 @@ Widget chart(BuildContext context) => Container(
                 show: false,
               ),
               sectionsSpace: 0,
-              centerSpaceRadius: 40,
-              sections: showingSections()),
+              centerSpaceRadius: ww(context, 33),
+              sections: showingSections(context)),
         ),
       ),
     );
 
-List<PieChartSectionData> showingSections() {
-  return List.generate(4, (i) {
-    final double radius = 50;
+List<PieChartSectionData> showingSections(BuildContext context) {
+  return List.generate(5, (i) {
+    final double radius = ww(context, 41);
+    final double size = (38.66 + 24.80 + 12.60 + 6.57 + 2.01);
     switch (i) {
       case 0:
         return PieChartSectionData(
-          color: Clrs.yellow,
-          value: 15,
+          color: Clrs.mainText,
+          value: 38.66 / size,
           title: '',
           radius: radius,
         );
       case 1:
         return PieChartSectionData(
-          color: Clrs.lightGreen,
-          value: 10,
+          color: Clrs.yellow,
+          value: 24.8 / size,
           title: '',
           radius: radius,
         );
       case 2:
         return PieChartSectionData(
-          color: Clrs.blue,
-          value: 40,
+          color: Clrs.lightGreen,
+          value: 12.6 / size,
           title: '',
           radius: radius,
         );
       case 3:
         return PieChartSectionData(
-          color: Clrs.mainText,
-          value: 35,
+          color: Clrs.blue,
+          value: 6.57 / size,
+          title: '',
+          radius: radius,
+        );
+      case 4:
+        return PieChartSectionData(
+          color: Clrs.orange,
+          value: 2.01 / size,
           title: '',
           radius: radius,
         );

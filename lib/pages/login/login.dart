@@ -217,6 +217,7 @@ Widget illustrator(BuildContext context, Size s) => Container(
             height: hh(context, 300),
             child: SvgPicture.asset(
               "assets/images/Vector.svg",
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
